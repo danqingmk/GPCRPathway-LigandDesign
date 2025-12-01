@@ -186,9 +186,11 @@ def best_model_running(seed, opt_res, data, args, file_name, split_type='random'
 
     return result_one
 
-def tvt_dl(X, Y, split_type='random', file_name=None, model_dir=None, device='cpu', difftasks='activity'):
+def tvt_dl(X, Y, split_type='random', file_name=None, model_dir=None, difftasks=['activity']):
 
-    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cpu')
+    # device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+
     file_name = file_name.replace('.csv', '_pro.csv')
     my_df = pd.read_csv(file_name)
 
@@ -291,11 +293,14 @@ def tvt_dl(X, Y, split_type='random', file_name=None, model_dir=None, device='cp
     f.close()
 
 
-def para_dl(X, Y, opt_res=None, split_type='random', file_name=None, model_dir=None, device ='cpu', difftasks=None):
+def para_dl(X, Y, opt_res=None, split_type='random', file_name=None, model_dir=None, difftasks=['activity']):
+
+    device = torch.device('cpu')
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     # os.environ["CUDA_VISIBLE_DEVICES"] = gpu_id
     # if device == 'cuda':
     #    torch.cuda.set_device(eval(gpu_id))  # gpu device id
+
     file_name = file_name.replace('.csv', '_pro.csv')
     opt_res = eval(open(str(model_dir).replace('model_save', 'param_save') + '/%s_%s_%s' % (
         split_type, TASK_TYPE, 'attentivefp.param'), 'r').readline().strip()) if opt_res == None else opt_res
