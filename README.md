@@ -3,14 +3,15 @@
 
 ### Prerequisites
 - Python 3.7+
-- RDKit (for molecular fingerprint generation)
-- PyTorch (for AttentiveFP model)
+- RDKit
+- PyTorch
 
-### Install Dependencies
+### Install Core Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
+**Note**: If you encounter issues with PyTorch installation, please visit PyTorch official website to get the appropriate version for your system.
 
 ## Quick Start  
 Run `run_model.py` for hyperparameter optimization:  
@@ -29,7 +30,7 @@ python scripts/run_result.py \
     --FP ECFP4 \
     --model RF
 ```
-*Note*: Use consistent parameters between run_model.py and run_result.py for the same configuration.  
+**Note**: Use consistent parameters between run_model.py and run_result.py for the same configuration.  
 
 ### Parameter Details  
 `run_model.py` / `run_result.py` Parameters  
