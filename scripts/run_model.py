@@ -10,7 +10,7 @@ import argparse
 
 import torch
 from data_utils import data_processing
-from RandomForest import tvt_rf
+from RF import tvt_rf
 from AttentiveFP import tvt_dl
 
 import warnings

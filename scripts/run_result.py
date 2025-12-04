@@ -8,7 +8,7 @@ import itertools
 import argparse
 
 import torch
-from RandomForest import para_rf
+from RF import para_rf
 from AttentiveFP import para_dl
 
 import warnings
